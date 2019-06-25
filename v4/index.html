@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="" id="app">
+         <span>{{name}}</span>
+         {{name}}
+         <p>
+             <button @click="clickMe">click me</button>
+         </p>
+    </div> 
+   <script src="./js/observe.js"></script>
+   <script src="./js/watcher.js"></script>
+   <script src="./js/compiler.js"></script>
+   <script src="./js/index.js"></script>
+
+   <script>
+    
+       
+       let app = new Vue({
+            el:'#app',
+            data:{
+                name:'llx'
+            },
+            methods:{
+                clickMe(){
+                    this.name = '2333';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

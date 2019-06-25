@@ -31,7 +31,6 @@ Compile.prototype = {
         [].slice.call(childNodes).forEach(function(node) {
             var reg = /\{\{(.*)\}\}/;
             var text = node.textContent;
-
             if (self.isElementNode(node)) {  
                 self.compile(node);
             } else if (self.isTextNode(node) && reg.test(text)) {
@@ -43,7 +42,7 @@ Compile.prototype = {
             }
         });
     },
-    compile: function(node) {
+    compile: function(node) {//编译一个节点,加上所有的指令和事件
         var nodeAttrs = node.attributes;
         var self = this;
         Array.prototype.forEach.call(nodeAttrs, function(attr) {
@@ -60,7 +59,7 @@ Compile.prototype = {
             }
         });
     },
-    compileText: function(node, exp) {
+    compileText: function(node, exp) {//编译一个文本节点,绑定文本,绑定的可是这个文本节点,这里是一个bug不能同时绑定两个
         var self = this;
         var initText = this.vm[exp];
         this.updateText(node, initText);
